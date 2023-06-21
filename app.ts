@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import Settings from "./settings";
 import Middlewares from "./middlewares";
 import Routers from "./routers";
+import config from "./common/config";
+import { logger } from "./common/utils";
 
 dotenv.config();
 
@@ -17,5 +19,5 @@ app = Routers(app);
 
 // Running server
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  logger.info(`Server running at http://localhost:${PORT}`, config.ENV);
 });
